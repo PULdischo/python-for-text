@@ -1,0 +1,1517 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Python for Working with Text</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analyze/tomotopy';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    “Intro to Python for Working with Text” workshop series
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">intro to python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/script.html">opening challenge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data-types.html">data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/variables.html">variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/lists.html">lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/loops.html">loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/logic.html">logic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">scraping text</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../scrape/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scrape/what.html">what is web scraping?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scrape/ethics.html">what is ethical? what is legal?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scrape/inspector.html">the HTML Inspector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scrape/explore.html">exploring <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scrape/scrape.html">scraping with <code class="docutils literal notranslate"><span class="pre">bs4</span></code></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../scrape/legiscan_api.html">Legiscan API</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">cleaning text</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../clean/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/dataframes.html">dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/scrape.html">scraping our text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clean/cleaning.html">cleaning our text</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">analyzing text</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what.html">what is text analysis?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">research questions: defining gender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">the <code class="docutils literal notranslate"><span class="pre">spaCy</span></code> pipeline</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="phrases.html">the <code class="docutils literal notranslate"><span class="pre">PhraseMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="entities.html">the <code class="docutils literal notranslate"><span class="pre">Entity-Ruler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokens.html">the token <code class="docutils literal notranslate"><span class="pre">Matcher</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">generating text</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../generate/overview.html">workshop overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generate/ml.html">machine learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generate/hf.html">Huggingface🤗 platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generate/inference.html">running inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generate/fine-tune.html">fine-tuning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fanalyze/tomotopy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analyze/tomotopy.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tomotopy</span> <span class="k">as</span> <span class="nn">tp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code from: https://bab2min.github.io/tomotopy/v0.12.6/en/</span>
+
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">LDAModel</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;117s_text_clean.txt&#39;</span><span class="p">):</span>
+    <span class="n">mdl</span><span class="o">.</span><span class="n">add_doc</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">mdl</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iteration: </span><span class="si">{}</span><span class="se">\t</span><span class="s1">Log-likelihood: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">mdl</span><span class="o">.</span><span class="n">ll_per_word</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration: 0	Log-likelihood: -10.052927732507191
+Iteration: 10	Log-likelihood: -9.862568387169105
+Iteration: 20	Log-likelihood: -9.748849780817746
+Iteration: 30	Log-likelihood: -9.661667728812548
+Iteration: 40	Log-likelihood: -9.591433863009165
+Iteration: 50	Log-likelihood: -9.530403814900614
+Iteration: 60	Log-likelihood: -9.475139136425645
+Iteration: 70	Log-likelihood: -9.418550185776532
+Iteration: 80	Log-likelihood: -9.361551935640971
+Iteration: 90	Log-likelihood: -9.305694582124907
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mdl</span><span class="o">.</span><span class="n">k</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Top 10 words of topic #</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mdl</span><span class="o">.</span><span class="n">get_topic_words</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 10 words of topic #0
+[(&#39;the&#39;, 0.06710098683834076), (&#39;of&#39;, 0.05364108458161354), (&#39;and&#39;, 0.04148131608963013), (&#39;for&#39;, 0.03129301592707634), (&#39;in&#39;, 0.02980850264430046), (&#39;to&#39;, 0.02479236200451851), (&#39;by&#39;, 0.02359151281416416), (&#39;or&#39;, 0.015809640288352966), (&#39;any&#39;, 0.015762362629175186), (&#39;section&#39;, 0.013379576615989208)]
+Top 10 words of topic #1
+[(&#39;the&#39;, 0.06950102746486664), (&#39;of&#39;, 0.030959274619817734), (&#39;to&#39;, 0.020295847207307816), (&#39;or&#39;, 0.010198285803198814), (&#39;by&#39;, 0.009556971490383148), (&#39;and&#39;, 0.0075072795152664185), (&#39;later&#39;, 0.006878539454191923), (&#39;Services&#39;, 0.006601894274353981), (&#39;relevant&#39;, 0.0064761461690068245), (&#39;is&#39;, 0.006463571451604366)]
+Top 10 words of topic #2
+[(&#39;the&#39;, 0.08392233401536942), (&#39;of&#39;, 0.05527251213788986), (&#39;and&#39;, 0.0272087212651968), (&#39;to&#39;, 0.02330981008708477), (&#39;for&#39;, 0.021402213722467422), (&#39;in&#39;, 0.020762361586093903), (&#39;a&#39;, 0.020475326105952263), (&#39;under&#39;, 0.01736576482653618), (&#39;by&#39;, 0.013532632030546665), (&#39;or&#39;, 0.012031670659780502)]
+Top 10 words of topic #3
+[(&#39;the&#39;, 0.06425023823976517), (&#39;of&#39;, 0.05967819318175316), (&#39;to&#39;, 0.021580472588539124), (&#39;a&#39;, 0.01382891833782196), (&#39;or&#39;, 0.013257412239909172), (&#39;and&#39;, 0.012621510773897171), (&#39;this&#39;, 0.012058054096996784), (&#39;in&#39;, 0.011744128540158272), (&#39;by&#39;, 0.010496473871171474), (&#39;before&#39;, 0.010085955262184143)]
+Top 10 words of topic #4
+[(&#39;the&#39;, 0.059359580278396606), (&#39;of&#39;, 0.04868781939148903), (&#39;and&#39;, 0.03715062513947487), (&#39;to&#39;, 0.03554011881351471), (&#39;in&#39;, 0.02915540151298046), (&#39;for&#39;, 0.020736059173941612), (&#39;a&#39;, 0.016575103625655174), (&#39;be&#39;, 0.014064774848520756), (&#39;on&#39;, 0.01327384915202856), (&#39;with&#39;, 0.012081730179488659)]
+Top 10 words of topic #5
+[(&#39;of&#39;, 0.05452362447977066), (&#39;the&#39;, 0.053358566015958786), (&#39;and&#39;, 0.03262171521782875), (&#39;to&#39;, 0.031222442165017128), (&#39;or&#39;, 0.022520532831549644), (&#39;a&#39;, 0.014887593686580658), (&#39;section&#39;, 0.01360242534428835), (&#39;in&#39;, 0.012533453293144703), (&#39;under&#39;, 0.011866847984492779), (&#39;on&#39;, 0.010990050621330738)]
+Top 10 words of topic #6
+[(&#39;the&#39;, 0.052499402314424515), (&#39;of&#39;, 0.04752279818058014), (&#39;and&#39;, 0.009479408152401447), (&#39;other&#39;, 0.007978526875376701), (&#39;by&#39;, 0.007409771904349327), (&#39;a&#39;, 0.006240664049983025), (&#39;subtitle&#39;, 0.006051079370081425), (&#39;meets&#39;, 0.006035280413925648), (&#39;upon&#39;, 0.005750902928411961), (&#39;rural&#39;, 0.00530853820964694)]
+Top 10 words of topic #7
+[(&#39;the&#39;, 0.06209443509578705), (&#39;of&#39;, 0.037315551191568375), (&#39;and&#39;, 0.021597500890493393), (&#39;to&#39;, 0.01869635470211506), (&#39;in&#39;, 0.01796756312251091), (&#39;as&#39;, 0.017827410250902176), (&#39;under&#39;, 0.011849925853312016), (&#39;by&#39;, 0.011576629243791103), (&#39;or&#39;, 0.011212234385311604), (&#39;shall&#39;, 0.010875869542360306)]
+Top 10 words of topic #8
+[(&#39;the&#39;, 0.055639300495386124), (&#39;of&#39;, 0.0399649515748024), (&#39;and&#39;, 0.032232850790023804), (&#39;a&#39;, 0.023790590465068817), (&#39;in&#39;, 0.02058035507798195), (&#39;to&#39;, 0.018732478842139244), (&#39;United&#39;, 0.014152640476822853), (&#39;is&#39;, 0.01365987304598093), (&#39;for&#39;, 0.012826516292989254), (&#39;at&#39;, 0.01255839318037033)]
+Top 10 words of topic #9
+[(&#39;of&#39;, 0.06444888561964035), (&#39;the&#39;, 0.03901589661836624), (&#39;and&#39;, 0.017625901848077774), (&#39;for&#39;, 0.01623176783323288), (&#39;to&#39;, 0.01409409660845995), (&#39;in&#39;, 0.013662578538060188), (&#39;as&#39;, 0.01323769986629486), (&#39;such&#39;, 0.012487523257732391), (&#39;this&#39;, 0.011100027710199356), (&#39;or&#39;, 0.010721620172262192)]
+Top 10 words of topic #10
+[(&#39;the&#39;, 0.07449652254581451), (&#39;of&#39;, 0.05031665414571762), (&#39;in&#39;, 0.022606657817959785), (&#39;and&#39;, 0.01987302489578724), (&#39;to&#39;, 0.013058606535196304), (&#39;a&#39;, 0.0110034653916955), (&#39;be&#39;, 0.010708468966186047), (&#39;by&#39;, 0.00788633618503809), (&#39;Mr.&#39;, 0.007768337614834309), (&#39;Assistant&#39;, 0.00662768492475152)]
+Top 10 words of topic #11
+[(&#39;the&#39;, 0.058548811823129654), (&#39;and&#39;, 0.036047324538230896), (&#39;of&#39;, 0.031649619340896606), (&#39;to&#39;, 0.02938397414982319), (&#39;a&#39;, 0.026071002706885338), (&#39;or&#39;, 0.024296959862113), (&#39;in&#39;, 0.020962614566087723), (&#39;such&#39;, 0.014854991808533669), (&#39;for&#39;, 0.01351911574602127), (&#39;under&#39;, 0.013497741892933846)]
+Top 10 words of topic #12
+[(&#39;the&#39;, 0.07807128131389618), (&#39;of&#39;, 0.040059372782707214), (&#39;in&#39;, 0.01617005281150341), (&#39;or&#39;, 0.01572088710963726), (&#39;and&#39;, 0.013255701400339603), (&#39;to&#39;, 0.011302354745566845), (&#39;section&#39;, 0.011166560463607311), (&#39;a&#39;, 0.010686058551073074), (&#39;Secretary&#39;, 0.008367111906409264), (&#39;U.S.C.&#39;, 0.006319754756987095)]
+Top 10 words of topic #13
+[(&#39;the&#39;, 0.06595311313867569), (&#39;of&#39;, 0.03281904757022858), (&#39;and&#39;, 0.01414736919105053), (&#39;this&#39;, 0.012864324264228344), (&#39;in&#39;, 0.009229031391441822), (&#39;a&#39;, 0.00888013280928135), (&#39;section&#39;, 0.008463705889880657), (&#39;shall&#39;, 0.007349483203142881), (&#39;to&#39;, 0.007068113423883915), (&#39;Health&#39;, 0.006505374796688557)]
+Top 10 words of topic #14
+[(&#39;and&#39;, 0.0706447884440422), (&#39;the&#39;, 0.06663239747285843), (&#39;to&#39;, 0.06398972123861313), (&#39;of&#39;, 0.04501021280884743), (&#39;a&#39;, 0.03619927167892456), (&#39;in&#39;, 0.03221409022808075), (&#39;shall&#39;, 0.02894853800535202), (&#39;for&#39;, 0.02479705400764942), (&#39;or&#39;, 0.0240955650806427), (&#39;under&#39;, 0.016155438497662544)]
+Top 10 words of topic #15
+[(&#39;the&#39;, 0.05699088051915169), (&#39;of&#39;, 0.04974977672100067), (&#39;and&#39;, 0.040741290897130966), (&#39;to&#39;, 0.028975920751690865), (&#39;or&#39;, 0.021906405687332153), (&#39;paragraph&#39;, 0.015363099984824657), (&#39;in&#39;, 0.014390755444765091), (&#39;that&#39;, 0.012274476699531078), (&#39;with&#39;, 0.011273534037172794), (&#39;an&#39;, 0.011147701181471348)]
+Top 10 words of topic #16
+[(&#39;of&#39;, 0.05795373395085335), (&#39;the&#39;, 0.04009035974740982), (&#39;a&#39;, 0.012178098782896996), (&#39;or&#39;, 0.010739201679825783), (&#39;than&#39;, 0.010119188576936722), (&#39;adding&#39;, 0.007358378730714321), (&#39;section&#39;, 0.007276490330696106), (&#39;and&#39;, 0.007206300273537636), (&#39;to&#39;, 0.006984031293541193), (&#39;for&#39;, 0.006059861741960049)]
+Top 10 words of topic #17
+[(&#39;the&#39;, 0.05514441803097725), (&#39;of&#39;, 0.043990444391965866), (&#39;to&#39;, 0.016898447647690773), (&#39;after&#39;, 0.011189303360879421), (&#39;health&#39;, 0.010775214992463589), (&#39;in&#39;, 0.010546144098043442), (&#39;that&#39;, 0.009647483006119728), (&#39;section&#39;, 0.009101237170398235), (&#39;The&#39;, 0.008246628567576408), (&#39;an&#39;, 0.007999937050044537)]
+Top 10 words of topic #18
+[(&#39;the&#39;, 0.0828772485256195), (&#39;of&#39;, 0.028041526675224304), (&#39;by&#39;, 0.009456225670874119), (&#39;be&#39;, 0.008971918374300003), (&#39;if&#39;, 0.008197026327252388), (&#39;end&#39;, 0.007627964951097965), (&#39;or&#39;, 0.007615857291966677), (&#39;workers&#39;, 0.007179980631917715), (&#39;States&#39;, 0.0070831188932061195), (&#39;through&#39;, 0.006453519221395254)]
+Top 10 words of topic #19
+[(&#39;the&#39;, 0.07423239946365356), (&#39;of&#39;, 0.03632009029388428), (&#39;and&#39;, 0.02550284005701542), (&#39;by&#39;, 0.02374611794948578), (&#39;or&#39;, 0.017904803156852722), (&#39;to&#39;, 0.016814423725008965), (&#39;a&#39;, 0.016277886927127838), (&#39;in&#39;, 0.014200975187122822), (&#39;any&#39;, 0.009389461949467659), (&#39;be&#39;, 0.008593311533331871)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdl</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Basic Info&gt;
+| LDAModel (current version: 0.12.7)
+| 1 docs, 2767674 words
+| Total Vocabs: 132815, Used Vocabs: 132815
+| Entropy of words: 7.53844
+| Entropy of term-weighted words: 7.53844
+| Removed Vocabs: &lt;NA&gt;
+|
+&lt;Training Info&gt;
+| Iterations: 100, Burn-in steps: 0
+| Optimization Interval: 10
+| Log-likelihood per word: -9.30569
+|
+&lt;Initial Parameters&gt;
+| tw: TermWeight.ONE
+| min_cf: 0 (minimum collection frequency of words)
+| min_df: 0 (minimum document frequency of words)
+| rm_top: 0 (the number of top words to be removed)
+| k: 20 (the number of topics between 1 ~ 32767)
+| alpha: [0.1] (hyperparameter of Dirichlet distribution for document-topic, given as a single `float` in case of symmetric prior and as a list with length `k` of `float` in case of asymmetric prior.)
+| eta: 0.01 (hyperparameter of Dirichlet distribution for topic-word)
+| seed: 2412454560 (random seed)
+| trained in version 0.12.7
+|
+&lt;Parameters&gt;
+| alpha (Dirichlet prior on the per-document topic distributions)
+|  [ 6.819781   2.9906507  5.5621905  4.322855   5.77358    5.5531387
+|    2.512393   4.888812   4.754261   5.1224723  3.685675   6.05855
+|    3.5470178  3.27735   10.026757   5.8187957  3.1641839  3.9994056
+|    3.1224132  4.08917  ]
+| eta (Dirichlet prior on the per-topic word distribution)
+|  0.01
+|
+&lt;Topics&gt;
+| #0 (210189) : the of and for in
+| #1 (78196) : the of to or by
+| #2 (165898) : the of and to for
+| #3 (122905) : the of to a or
+| #4 (173151) : the of and to in
+| #5 (165187) : of the and to or
+| #6 (61968) : the of and other by
+| #7 (141374) : the of and to in
+| #8 (136668) : the of and a in
+| #9 (149303) : of the and for to
+| #10 (100368) : the of in and to
+| #11 (185815) : the and of to a
+| #12 (94405) : the of in or and
+| #13 (87523) : the of and this in
+| #14 (329397) : and the to of a
+| #15 (173507) : the of and to or
+| #16 (84154) : of the a or than
+| #17 (112174) : the of to after health
+| #18 (81264) : the of by be if
+| #19 (114228) : the of and by or
+|
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">from</span> <span class="nn">spacy_cleaner</span> <span class="kn">import</span> <span class="n">processing</span><span class="p">,</span> <span class="n">Cleaner</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/caladof/anaconda3/lib/python3.11/site-packages/spacy/util.py:910: UserWarning: [W095] Model &#39;en_core_web_sm&#39; (3.5.0) was trained with spaCy v3.5.0 and may not be 100% compatible with the current version (3.7.2). If you see errors or degraded performance, download a newer compatible model or retrain your custom model with the current spaCy version. For more details and available updates, run: python -m spacy validate
+  warnings.warn(warn_msg)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaner</span> <span class="o">=</span> <span class="n">Cleaner</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">processing</span><span class="o">.</span><span class="n">remove_stopword_token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;117s_text_clean.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaner</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                                      | 0/20706436 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                        | 257/20706436 [00:00&lt;3:05:43, 1858.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                        | 769/20706436 [00:00&lt;1:55:41, 2982.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 1281/20706436 [00:00&lt;1:42:22, 3370.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 1793/20706436 [00:00&lt;1:37:10, 3551.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 2305/20706436 [00:00&lt;1:34:48, 3639.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 2817/20706436 [00:00&lt;1:32:48, 3717.87it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 3190/20706436 [00:00&lt;1:34:46, 3640.79it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 3585/20706436 [00:01&lt;1:42:39, 3361.30it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 4097/20706436 [00:01&lt;1:39:39, 3462.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 4609/20706436 [00:01&lt;1:36:29, 3575.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 5121/20706436 [00:01&lt;1:34:35, 3647.32it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 5633/20706436 [00:01&lt;1:33:18, 3697.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 6145/20706436 [00:01&lt;1:32:05, 3746.09it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 6657/20706436 [00:01&lt;1:30:52, 3796.26it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 7169/20706436 [00:01&lt;1:31:36, 3766.04it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 7681/20706436 [00:02&lt;1:30:49, 3798.35it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 8193/20706436 [00:02&lt;1:30:56, 3793.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 8705/20706436 [00:02&lt;1:30:40, 3804.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 9217/20706436 [00:02&lt;1:30:17, 3820.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                       | 9729/20706436 [00:02&lt;1:30:38, 3805.57it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 10241/20706436 [00:02&lt;1:30:41, 3803.74it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 10753/20706436 [00:02&lt;1:30:34, 3807.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 11265/20706436 [00:03&lt;1:31:12, 3781.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 11777/20706436 [00:03&lt;1:31:06, 3785.95it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 12289/20706436 [00:03&lt;1:30:53, 3794.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 12801/20706436 [00:03&lt;1:30:41, 3803.19it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 13313/20706436 [00:03&lt;1:30:37, 3805.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 13825/20706436 [00:03&lt;1:30:40, 3803.15it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 14337/20706436 [00:03&lt;1:30:19, 3818.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 14849/20706436 [00:04&lt;1:30:36, 3806.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 15361/20706436 [00:04&lt;1:32:22, 3732.86it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 15873/20706436 [00:04&lt;1:32:59, 3708.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 16385/20706436 [00:04&lt;1:32:04, 3745.17it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 16897/20706436 [00:04&lt;1:31:36, 3764.34it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 17409/20706436 [00:04&lt;1:31:11, 3781.51it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 17921/20706436 [00:04&lt;1:30:59, 3789.55it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 18433/20706436 [00:04&lt;1:30:54, 3793.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 18945/20706436 [00:05&lt;1:30:31, 3809.15it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 19457/20706436 [00:05&lt;1:31:13, 3779.28it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 19969/20706436 [00:05&lt;1:31:10, 3781.20it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 20481/20706436 [00:05&lt;1:30:57, 3790.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 20993/20706436 [00:05&lt;1:30:33, 3806.87it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 21505/20706436 [00:05&lt;1:30:44, 3799.57it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 22017/20706436 [00:05&lt;1:30:32, 3807.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 22529/20706436 [00:06&lt;1:30:35, 3805.63it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 23041/20706436 [00:06&lt;1:30:31, 3808.18it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 23553/20706436 [00:06&lt;1:31:15, 3777.59it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 24065/20706436 [00:06&lt;1:31:06, 3783.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 24577/20706436 [00:06&lt;1:30:35, 3804.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 25089/20706436 [00:06&lt;1:30:42, 3799.86it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 25470/20706436 [00:06&lt;1:30:47, 3796.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 25857/20706436 [00:06&lt;1:38:12, 3509.39it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 26369/20706436 [00:07&lt;1:37:04, 3550.81it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 26881/20706436 [00:07&lt;1:36:16, 3580.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 27393/20706436 [00:07&lt;1:35:38, 3603.59it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 27905/20706436 [00:07&lt;1:34:27, 3648.44it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 28417/20706436 [00:07&lt;1:33:14, 3696.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 28929/20706436 [00:07&lt;1:32:07, 3740.64it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 29441/20706436 [00:07&lt;1:31:56, 3747.95it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 29953/20706436 [00:08&lt;1:31:17, 3775.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 30465/20706436 [00:08&lt;1:30:57, 3788.48it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 30977/20706436 [00:08&lt;1:30:45, 3796.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 31489/20706436 [00:08&lt;1:31:24, 3769.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 32001/20706436 [00:08&lt;1:31:15, 3775.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 32513/20706436 [00:08&lt;1:31:10, 3778.91it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 33025/20706436 [00:08&lt;1:30:40, 3799.95it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 33537/20706436 [00:08&lt;1:30:36, 3802.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 34049/20706436 [00:09&lt;1:30:19, 3814.61it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 34561/20706436 [00:09&lt;1:30:19, 3814.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 35073/20706436 [00:09&lt;1:30:03, 3825.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 35585/20706436 [00:09&lt;1:31:10, 3778.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 36097/20706436 [00:09&lt;1:30:51, 3791.48it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 36609/20706436 [00:09&lt;1:30:58, 3786.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 37121/20706436 [00:09&lt;1:30:58, 3786.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 37633/20706436 [00:10&lt;1:31:15, 3774.80it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 38145/20706436 [00:10&lt;1:32:17, 3732.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 38657/20706436 [00:10&lt;1:33:11, 3696.20it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 39169/20706436 [00:10&lt;1:32:23, 3728.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 39681/20706436 [00:10&lt;1:32:37, 3718.64it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 40193/20706436 [00:10&lt;1:32:00, 3743.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 40705/20706436 [00:10&lt;1:31:28, 3765.13it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 41217/20706436 [00:11&lt;1:31:05, 3781.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 41729/20706436 [00:11&lt;1:30:48, 3793.04it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 42241/20706436 [00:11&lt;1:30:30, 3805.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 42753/20706436 [00:11&lt;1:29:45, 3837.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 43265/20706436 [00:11&lt;1:29:12, 3860.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 43777/20706436 [00:11&lt;1:29:36, 3843.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 44289/20706436 [00:11&lt;1:29:51, 3832.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 44673/20706436 [00:11&lt;1:30:01, 3825.22it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 45057/20706436 [00:12&lt;1:37:48, 3520.76it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 45569/20706436 [00:12&lt;1:35:11, 3617.38it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 46081/20706436 [00:12&lt;1:33:30, 3682.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 46593/20706436 [00:12&lt;1:32:08, 3736.76it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 47105/20706436 [00:12&lt;1:31:13, 3774.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 47617/20706436 [00:12&lt;1:30:33, 3802.35it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 48129/20706436 [00:12&lt;1:31:15, 3772.71it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 48641/20706436 [00:13&lt;1:31:15, 3773.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 49153/20706436 [00:13&lt;1:30:22, 3809.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 49665/20706436 [00:13&lt;1:31:36, 3758.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 50177/20706436 [00:13&lt;1:32:33, 3719.60it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 50689/20706436 [00:13&lt;1:31:29, 3762.55it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 51201/20706436 [00:13&lt;1:30:25, 3807.07it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 51713/20706436 [00:13&lt;1:30:47, 3791.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 52225/20706436 [00:13&lt;1:30:52, 3788.23it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 52737/20706436 [00:14&lt;1:30:44, 3793.52it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 53249/20706436 [00:14&lt;1:30:17, 3812.00it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 53761/20706436 [00:14&lt;1:29:34, 3842.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 54273/20706436 [00:14&lt;1:29:41, 3837.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 54785/20706436 [00:14&lt;1:29:56, 3826.94it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 55297/20706436 [00:14&lt;1:29:54, 3827.99it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 55809/20706436 [00:14&lt;1:30:20, 3809.80it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 56321/20706436 [00:15&lt;1:30:25, 3806.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 56833/20706436 [00:15&lt;1:30:26, 3805.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 57345/20706436 [00:15&lt;1:30:25, 3806.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 57857/20706436 [00:15&lt;1:30:16, 3811.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 58369/20706436 [00:15&lt;1:30:13, 3814.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 58881/20706436 [00:15&lt;1:30:13, 3814.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 59393/20706436 [00:15&lt;1:29:39, 3838.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 59905/20706436 [00:15&lt;1:29:46, 3832.74it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 60417/20706436 [00:16&lt;1:30:26, 3804.33it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 60929/20706436 [00:16&lt;1:31:46, 3749.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 61441/20706436 [00:16&lt;1:32:43, 3710.80it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 61953/20706436 [00:16&lt;1:32:57, 3701.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 62465/20706436 [00:16&lt;1:39:09, 3469.82it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 62977/20706436 [00:16&lt;1:36:55, 3549.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 63489/20706436 [00:16&lt;1:34:42, 3632.77it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 64001/20706436 [00:17&lt;1:33:59, 3660.14it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 64513/20706436 [00:17&lt;1:33:22, 3684.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 65025/20706436 [00:17&lt;1:32:27, 3721.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 65537/20706436 [00:17&lt;1:31:42, 3751.20it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 66049/20706436 [00:17&lt;1:31:10, 3773.24it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 66561/20706436 [00:17&lt;1:30:54, 3784.12it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 67073/20706436 [00:17&lt;1:30:45, 3790.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 67585/20706436 [00:18&lt;1:30:31, 3799.79it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|                                      | 68097/20706436 [00:18&lt;1:31:09, 3773.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 68609/20706436 [00:18&lt;1:30:42, 3791.99it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 69121/20706436 [00:18&lt;1:30:40, 3793.39it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 69633/20706436 [00:18&lt;1:30:14, 3811.57it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 70145/20706436 [00:18&lt;1:30:26, 3803.18it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 70657/20706436 [00:18&lt;1:30:29, 3800.98it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 71169/20706436 [00:18&lt;1:30:14, 3811.39it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 71681/20706436 [00:19&lt;1:30:20, 3806.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 72193/20706436 [00:19&lt;1:32:06, 3733.93it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 72705/20706436 [00:19&lt;1:33:17, 3686.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 73217/20706436 [00:19&lt;1:32:45, 3707.21it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 73729/20706436 [00:19&lt;1:32:10, 3730.65it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 74241/20706436 [00:19&lt;1:31:31, 3757.04it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 74753/20706436 [00:19&lt;1:30:56, 3780.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 75265/20706436 [00:20&lt;1:30:48, 3786.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 75777/20706436 [00:20&lt;1:30:19, 3806.69it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 76289/20706436 [00:20&lt;1:31:15, 3767.63it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 76801/20706436 [00:20&lt;1:31:11, 3770.06it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 77313/20706436 [00:20&lt;1:30:41, 3790.77it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 77825/20706436 [00:20&lt;1:30:32, 3797.06it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 78337/20706436 [00:20&lt;1:30:23, 3803.53it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 78849/20706436 [00:21&lt;1:30:20, 3805.64it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 79361/20706436 [00:21&lt;1:30:13, 3810.36it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 79873/20706436 [00:21&lt;1:29:50, 3826.54it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 80385/20706436 [00:21&lt;1:30:42, 3789.50it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 80897/20706436 [00:21&lt;1:30:41, 3790.17it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 81409/20706436 [00:21&lt;1:30:14, 3809.19it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 81921/20706436 [00:21&lt;1:29:51, 3825.41it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 82433/20706436 [00:21&lt;1:30:10, 3811.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 82945/20706436 [00:22&lt;1:29:54, 3822.74it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 83457/20706436 [00:22&lt;1:30:02, 3817.25it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 83969/20706436 [00:22&lt;1:30:58, 3778.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 84481/20706436 [00:22&lt;1:32:37, 3710.46it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 84993/20706436 [00:22&lt;1:32:21, 3721.02it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 85505/20706436 [00:22&lt;1:31:55, 3738.79it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 86017/20706436 [00:22&lt;1:31:10, 3769.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 86529/20706436 [00:23&lt;1:30:53, 3780.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 87041/20706436 [00:23&lt;1:30:32, 3795.49it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 87553/20706436 [00:23&lt;1:30:28, 3798.01it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 88065/20706436 [00:23&lt;1:30:39, 3790.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 88577/20706436 [00:23&lt;1:38:00, 3505.96it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 89089/20706436 [00:23&lt;1:35:40, 3591.31it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 89601/20706436 [00:23&lt;1:33:51, 3661.12it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 90113/20706436 [00:24&lt;1:32:32, 3713.05it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 90625/20706436 [00:24&lt;1:31:53, 3738.84it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 91137/20706436 [00:24&lt;1:31:07, 3770.39it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 91649/20706436 [00:24&lt;1:30:47, 3784.37it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 92161/20706436 [00:24&lt;1:30:27, 3798.02it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 92673/20706436 [00:24&lt;1:30:48, 3783.57it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 93185/20706436 [00:24&lt;1:30:29, 3796.58it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 93697/20706436 [00:24&lt;1:30:21, 3802.25it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 94209/20706436 [00:25&lt;1:30:34, 3792.53it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 94721/20706436 [00:25&lt;1:30:21, 3802.08it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 95233/20706436 [00:25&lt;1:30:56, 3777.08it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 95745/20706436 [00:25&lt;1:31:48, 3741.75it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 96257/20706436 [00:25&lt;1:31:54, 3737.37it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 96769/20706436 [00:25&lt;1:31:58, 3734.88it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 97281/20706436 [00:25&lt;1:31:19, 3761.12it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 97793/20706436 [00:26&lt;1:30:54, 3778.57it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 98305/20706436 [00:26&lt;1:30:33, 3792.72it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 98817/20706436 [00:26&lt;1:30:13, 3806.48it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 99329/20706436 [00:26&lt;1:30:01, 3814.87it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                     | 99841/20706436 [00:26&lt;1:30:18, 3803.25it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 100353/20706436 [00:26&lt;1:30:31, 3793.94it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 100865/20706436 [00:26&lt;1:30:54, 3777.69it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 101377/20706436 [00:27&lt;1:30:27, 3796.72it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 101889/20706436 [00:27&lt;1:29:41, 3828.78it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 102401/20706436 [00:27&lt;1:29:47, 3824.68it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 102913/20706436 [00:27&lt;1:29:45, 3825.94it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   0%|▏                                    | 103425/20706436 [00:27&lt;1:30:00, 3815.32it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 103937/20706436 [00:27&lt;1:29:50, 3822.29it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 104449/20706436 [00:27&lt;1:30:09, 3808.34it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 104961/20706436 [00:27&lt;1:30:41, 3785.76it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 105473/20706436 [00:28&lt;1:30:31, 3792.77it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 105985/20706436 [00:28&lt;1:30:12, 3805.85it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 106497/20706436 [00:28&lt;1:30:10, 3807.19it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 107009/20706436 [00:28&lt;1:31:05, 3768.66it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 107521/20706436 [00:28&lt;1:31:56, 3733.75it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 108033/20706436 [00:28&lt;1:31:51, 3737.27it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 108545/20706436 [00:28&lt;1:31:44, 3742.10it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 109057/20706436 [00:29&lt;1:31:25, 3754.73it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 109569/20706436 [00:29&lt;1:31:02, 3770.64it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 110081/20706436 [00:29&lt;1:30:28, 3794.43it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 110593/20706436 [00:29&lt;1:31:05, 3768.23it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 110970/20706436 [00:29&lt;1:31:07, 3766.94it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 111361/20706436 [00:29&lt;1:37:58, 3503.60it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 111873/20706436 [00:29&lt;1:35:09, 3606.85it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 112385/20706436 [00:29&lt;1:33:55, 3654.17it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cleaning Progress:   1%|▏                                    | 112640/20706436 [00:29&lt;1:31:22, 3756.40it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cleaner</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy_cleaner/cleaners.py:95,</span> in <span class="ni">Cleaner.clean</span><span class="nt">(self, texts, as_tuples, batch_size, disable, component_cfg, n_process)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span>  <span class="c1"># noqa: PLR0913</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="n">texts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="n">n_process</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Clean a stream of texts.</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="sd">     Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">         https://spacy.io/api/language#pipe</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="k">return</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">helpers</span><span class="o">.</span><span class="n">clean_doc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>                 <span class="n">texts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>                 <span class="n">as_tuples</span><span class="o">=</span><span class="n">as_tuples</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>                 <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>                 <span class="n">disable</span><span class="o">=</span><span class="n">disable</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>                 <span class="n">component_cfg</span><span class="o">=</span><span class="n">component_cfg</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>                 <span class="n">n_process</span><span class="o">=</span><span class="n">n_process</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>             <span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>             <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Cleaning Progress&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>             <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">texts</span><span class="p">),</span>  <span class="c1"># type: ignore[arg-type]</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="p">]</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy_cleaner/cleaners.py:95,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span>  <span class="c1"># noqa: PLR0913</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="n">texts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="n">n_process</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Clean a stream of texts.</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="sd">     Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="sd">         https://spacy.io/api/language#pipe</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="k">return</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">helpers</span><span class="o">.</span><span class="n">clean_doc</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>             <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>                 <span class="n">texts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>                 <span class="n">as_tuples</span><span class="o">=</span><span class="n">as_tuples</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>                 <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>                 <span class="n">disable</span><span class="o">=</span><span class="n">disable</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>                 <span class="n">component_cfg</span><span class="o">=</span><span class="n">component_cfg</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>                 <span class="n">n_process</span><span class="o">=</span><span class="n">n_process</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>             <span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>             <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Cleaning Progress&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>             <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">texts</span><span class="p">),</span>  <span class="c1"># type: ignore[arg-type]</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="p">]</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/tqdm/std.py:1181,</span> in <span class="ni">tqdm.__iter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span> <span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1181</span>     <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span>         <span class="k">yield</span> <span class="n">obj</span>
+<span class="g g-Whitespace">   </span><span class="mi">1183</span>         <span class="c1"># Update and possibly print the progressbar.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1184</span>         <span class="c1"># Note: does not call self.update(1) for speed optimisation.</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/language.py:1618,</span> in <span class="ni">Language.pipe</span><span class="nt">(self, texts, as_tuples, batch_size, disable, component_cfg, n_process)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1616</span>     <span class="k">for</span> <span class="n">pipe</span> <span class="ow">in</span> <span class="n">pipes</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>         <span class="n">docs</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1618</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span>     <span class="k">yield</span> <span class="n">doc</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/util.py:1685,</span> in <span class="ni">_pipe</span><span class="nt">(docs, proc, name, default_error_handler, kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1675</span> <span class="k">def</span> <span class="nf">_pipe</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1676</span>     <span class="n">docs</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="s2">&quot;Doc&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1677</span>     <span class="n">proc</span><span class="p">:</span> <span class="s2">&quot;PipeCallable&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1682</span>     <span class="n">kwargs</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1683</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="s2">&quot;Doc&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1684</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">proc</span><span class="p">,</span> <span class="s2">&quot;pipe&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1685</span>         <span class="k">yield from</span> <span class="n">proc</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">docs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1686</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1687</span>         <span class="c1"># We added some args for pipe that __call__ doesn&#39;t expect.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1688</span>         <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/pipeline/transition_parser.pyx:252,</span> in <span class="ni">pipe</span><span class="nt">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/pipeline/transition_parser.pyx:343,</span> in <span class="ni">spacy.pipeline.transition_parser.Parser.set_annotations</span><span class="nt">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/pipeline/_parser_internals/ner.pyx:275,</span> in <span class="ni">spacy.pipeline._parser_internals.ner.BiluoPushDown.set_annotations</span><span class="nt">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/tokens/doc.pyx:811,</span> in <span class="ni">spacy.tokens.doc.Doc.set_ents</span><span class="nt">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/site-packages/spacy/tokens/doc.pyx:127,</span> in <span class="ni">spacy.tokens.doc.SetEntsDefault.values</span><span class="nt">()</span>
+
+<span class="nn">File ~/anaconda3/lib/python3.11/enum.py:787,</span> in <span class="ni">EnumType.__members__</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span><span class="sd">     Return the number of members (no aliases)</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_member_names_</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">787</span> <span class="nd">@bltns</span><span class="o">.</span><span class="n">property</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span> <span class="k">def</span> <span class="nf">__members__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="sd">     Returns a mapping of member name-&gt;value.</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="sd">     This mapping lists all enum members, including aliases. Note that this</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="sd">     is a read-only view of the internal mapping.</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="k">return</span> <span class="n">MappingProxyType</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_member_map_</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./analyze"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Filipa Calado
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
