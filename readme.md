@@ -75,13 +75,13 @@ Pages](https://pages.github.com/).
 
 Making changes to the website is much like making changes to any
 Github repository, but with the added step of pushing the changes to a
-new Github Pages branch. Below are the steps necessary to make changes
-and update the website accordingly. Please follow the steps below. 
+new `gh-pages` branch. Below are the steps necessary to make changes
+and update the website accordingly. 
 
 Before starting, you'll need to install a few pieces of software:
 - Python (I use the [Anaconda](https://www.anaconda.com/download)
   distribution, but any kind of Python works as long as it is a
-  version of Python 3+.
+  version of Python 3+).
 - [Jupyter-Book](https://jupyterbook.org/en/stable/start/overview.html)
   for building the website.
 - [Git](https://git-scm.com/downloads) versioning software for sending
